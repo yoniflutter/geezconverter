@@ -3,7 +3,7 @@ const p = document.querySelector("p");
 const btn = document.querySelector("button");
 
 btn.addEventListener("click", () => {
-  p.innerText = convert(input.value);
+  p.innerText = `Result: ${convert(input.value)}`;
 });
 
 const code = 4969;

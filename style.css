@@ -1,0 +1,42 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+body{
+    background-color: brown;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+div{
+    display: flex;
+}
+
+input{
+    padding: 7px;
+    border: none;
+}
+
+input:focus{
+    outline: solid 1px rgb(0, 0, 0);
+}
+
+button{
+    padding: 7px;
+    border: none;
+    background-color: black;
+    color: white;
+}
+
+p{
+    font: 28px;
+    font-weight: bold;
+    color: white;
+    margin-top: 10px;
+}
