@@ -1,9 +1,18 @@
 const input = document.querySelector("input");
 const p = document.querySelector("p");
 const btn = document.querySelector("button");
+const copy = document.querySelector("#copy");
+const year = new Date().getFullYear();
+
+copy.innerHTML = `Copyright © ${year} Yohannes Sintayehu.`
 
 btn.addEventListener("click", () => {
-  p.innerText = `Result: ${convert(input.value)}`;
+  if(input.value == null || input.value == undefined || input.value == "" || !isNaN(input.value)){
+    p.innerText = "Please enter accurate info"
+  }else{
+    p.innerText = `Result: ${convert(input.value)}`;
+  }
+  
 });
 
 const code = 4969;

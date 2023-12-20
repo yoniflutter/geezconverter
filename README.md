@@ -1,1 +1,1 @@
-# Geez to arabic number converter(unfinished) and not fully accurate
+# Geez to arabic number converter(unfinished) and works well till 1000

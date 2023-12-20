@@ -6,7 +6,7 @@
 }
 
 body{
-    background-color: brown;
+    background-color: rgb(42, 140, 165);
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -19,8 +19,9 @@ div{
 }
 
 input{
-    padding: 7px;
+    padding: 15px;
     border: none;
+    border-radius: 5px 0px 0px 5px;
 }
 
 input:focus{
@@ -28,10 +29,11 @@ input:focus{
 }
 
 button{
-    padding: 7px;
+    padding: 10px;
     border: none;
     background-color: black;
     color: white;
+    border-radius: 0px 5px 5px 0px;
 }
 
 p{
@@ -39,4 +41,9 @@ p{
     font-weight: bold;
     color: white;
     margin-top: 10px;
+}
+
+.title{
+    color: white;
+    margin-bottom: 15px;
 }
