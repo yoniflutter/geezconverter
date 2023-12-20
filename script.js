@@ -9,16 +9,28 @@ btn.addEventListener("click", () => {
 const code = 4969;
 
 function convert(num) {
-  if (num.codePointAt(0) === 4987 && num.length == 1) {
+  if (
+    (num.startsWith("፪፻") && (num.length == 2 || num.length == 3)) ||
+    (num.startsWith("፫፻") && (num.length == 2 || num.length == 3)) ||
+    (num.startsWith("፬፻") && (num.length == 2 || num.length == 3)) ||
+    (num.startsWith("፭፻") && (num.length == 2 || num.length == 3)) ||
+    (num.startsWith("፮፻") && (num.length == 2 || num.length == 3)) ||
+    (num.startsWith("፯፻") && (num.length == 2 || num.length == 3)) ||
+    (num.startsWith("፰፻") && (num.length == 2 || num.length == 3)) ||
+    (num.startsWith("፱፻") && (num.length == 2 || num.length == 3))
+  ) {
+    return specConvertTwo(num);
+  } else if (num.startsWith("፻") && num.length == 2) {
+    return specConvert(num);
+  } else if (num.codePointAt(0) === 4987 && num.length == 1) {
     return 100;
-  }
-  if (num.length > 1 || num.codePointAt(0) > 4978) {
+  } else if (num.length > 1 || num.codePointAt(0) > 4978) {
     if (num.length > 2 || num.codePointAt(0) > 4986) {
-      if(num.length > 2 && num.length < 4){
+      if (num.length > 2 && num.length < 4) {
         return geezThreeConverter(num);
-      }else if(num.length > 3 && num.length < 5){
+      } else if (num.length > 3 && num.length < 5) {
         return geezFourConverter(num);
-      }else if(num.length > 4 && num.length < 6){
+      } else if (num.length > 4 && num.length < 6) {
         return geezFiveConverter(num);
       }
     } else {
@@ -26,6 +38,27 @@ function convert(num) {
     }
   } else {
     return num.codePointAt(0) - code + 1;
+  }
+}
+
+function specConvertTwo(num){
+   let char = num.split("");
+   if(num.length == 2){
+    return convert(char[0]) * 100
+   }else{
+    const leading = convert(char[0]);
+    const rest = specConvert(`${char[1]}${char[2]}`)
+    let arr = rest.toString().split("");
+    return `${leading}${arr[1]}${arr[2]}`
+   }
+}
+
+function specConvert(num) {
+  let char = num.split("");
+  if (char[1].codePointAt(1) > 4879) {
+    return 100 + geezTwoConverter(char[1]);
+  } else {
+    return 100 + convert(char[1]);
   }
 }
 
@@ -108,14 +141,12 @@ function geezThreeConverter(num) {
   return 100 + geezTwoConverter(`${chars[1]}${chars[2]}`);
 }
 
-function geezFourConverter(num){
+function geezFourConverter(num) {
   const chars = [];
-  for(let i = 0; i < num.length; i++){
+  for (let i = 0; i < num.length; i++) {
     chars.push(num[i]);
   }
   return convert(chars[0]) * 100 + geezTwoConverter(`${chars[2]}${chars[3]}`);
 }
 
-function geezFiveConverter(num){
-
-}
+function geezFiveConverter(num) {}
