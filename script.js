@@ -4,21 +4,42 @@ const btn = document.querySelector("button");
 const copy = document.querySelector("#copy");
 const year = new Date().getFullYear();
 
-copy.innerHTML = `Copyright © ${year} Yohannes Sintayehu.`
+copy.innerHTML = `Copyright © ${year} Henok Emayaye.`;
+
+window.addEventListener('keydown', (e)=>{
+  if(e.key == "Enter"){
+    if (
+      input.value == null ||
+      input.value == undefined ||
+      input.value == "" ||
+      !isNaN(input.value)
+    ) {
+      p.innerText = "Please enter accurate info";
+    } else {
+      p.innerText = `Result: ${convert(input.value)}`;
+    }
+  }
+})
 
 btn.addEventListener("click", () => {
-  if(input.value == null || input.value == undefined || input.value == "" || !isNaN(input.value)){
-    p.innerText = "Please enter accurate info"
-  }else{
+  if (
+    input.value == null ||
+    input.value == undefined ||
+    input.value == "" ||
+    !isNaN(input.value)
+  ) {
+    p.innerText = "Please enter accurate info";
+  } else {
     p.innerText = `Result: ${convert(input.value)}`;
   }
-  
 });
 
 const code = 4969;
 
 function convert(num) {
-  if (
+  if (num.includes("፲፻")) {
+    return 1000;
+  } else if (
     (num.startsWith("፪፻") && (num.length == 2 || num.length == 3)) ||
     (num.startsWith("፫፻") && (num.length == 2 || num.length == 3)) ||
     (num.startsWith("፬፻") && (num.length == 2 || num.length == 3)) ||
@@ -50,16 +71,16 @@ function convert(num) {
   }
 }
 
-function specConvertTwo(num){
-   let char = num.split("");
-   if(num.length == 2){
-    return convert(char[0]) * 100
-   }else{
+function specConvertTwo(num) {
+  let char = num.split("");
+  if (num.length == 2) {
+    return convert(char[0]) * 100;
+  } else {
     const leading = convert(char[0]);
-    const rest = specConvert(`${char[1]}${char[2]}`)
+    const rest = specConvert(`${char[1]}${char[2]}`);
     let arr = rest.toString().split("");
-    return `${leading}${arr[1]}${arr[2]}`
-   }
+    return `${leading}${arr[1]}${arr[2]}`;
+  }
 }
 
 function specConvert(num) {

@@ -6,7 +6,7 @@
 }
 
 body{
-    background-color: rgb(42, 140, 165);
+    background-color: rgb(14, 76, 231);
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -46,4 +46,9 @@ p{
 .title{
     color: white;
     margin-bottom: 15px;
+}
+
+p#copy{
+    position: absolute;
+    bottom: 5px;
 }
